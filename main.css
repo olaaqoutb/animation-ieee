@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+
+}
+:root {
+    --blue:#0e337d;
+    --orange:#c84e42;
+}
+.part1, .part2, .part3{
+height: 100vh;
+
+}
+/* .part1{
+    background-color: rgb(1, 1, 99);
+} */
+.part2{
+    display: flex;
+    /* background-color: rgb(1, 1, 99); */
+}
+/* .part3{
+    background-color: rgb(189, 123, 0);
+} */
+
+
+
+.textOne{
+    margin-top: 0;
+    margin: auto;
+    color: yellow;
+    font-size: 170px;
+    width: 1100px;
+}
+.textTwo{
+    margin-top: 0;
+   padding: 100px;
+    width: 550px;
+    font-size: 50px;
+    color: aliceblue;
+    
+}

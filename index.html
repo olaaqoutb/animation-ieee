@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ieee</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="part1"></div>
+        <div class="part2">
+            <h1 class="textOne">New ,weird & Wonderful</h1>
+        </div>
+        <div class="part3">
+            <h1 class="textTwo">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi repudiandae omnis id,
+                distinctioppppppppppp corrupti ut at accusantium beatae, lkjjjjjjjhkhlkhklhlhlhlhjkkllkhh</h1>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+        <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+        <script src="https://unpkg.com/split-type"></script>
+    <script>
+
+
+
+
+
+
+
+        gsap.registerPlugin(ScrollTrigger);
+
+
+        gsap.fromTo(".container", {
+            backgroundColor: gsap.getProperty("html", "--blue")
+        }, {
+            scrollTrigger: {
+                trigger: ".textTwo",
+                scrub: true,
+                end: "bottom bottom",
+            },
+            backgroundColor: gsap.getProperty("html", "--orange")
+        });
+
+        const splitTypes = document.querySelectorAll('.textTwo')
+        const splitTypes1 = document.querySelectorAll('.part2')
+        splitTypes1.forEach((char, i) => {
+            const text = new SplitType(char, { types: 'chars' })
+            gsap.from(text.chars, {
+                scrollTrigger: {
+                    trigger: char,
+                    start: 'top 70%',
+                    end: 'top 0%',
+                    scrub: true,
+                    markers: false,
+
+                },
+                scale: 1,
+                rotation: 20,
+                opacity: 0.2,
+                stagger: 0.9
+            })
+        });
+        splitTypes.forEach((char, i) => {
+            const text = new SplitType(char, { types: 'chars' })
+            gsap.from(text.chars, {
+                scrollTrigger: {
+                    trigger: char,
+                    start: '5% 90%',
+                    end: '5% 0%',
+                    scrub: true,
+                    markers: false,
+
+                },
+                opacity: 0.2,
+                stagger: 0.1
+            })
+        })
+
+
+
+
+
+
+
+
+
+        const lenis = new Lenis()
+
+        lenis.on('scroll', (e) => {
+            console.log(e)
+        })
+
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+
+        requestAnimationFrame(raf)
+
+
+
+    </script>
+</body>
+
+</html>
+
+<!-- gsap.registerPlugin(ScrollTrigger);
+
+        // gsap.from(".textOne", {
+        //     scrollTrigger: {
+        //         trigger: ".textOne",
+        //         start: 'top 80%',
+        //         end: 'top 20%',
+        //         scrub: true,
+        //         markers: false
+        //     },
+        //     opacity: 0.2,
+        //     stagger: 0.1
+        // });
+
+        // gsap.from(".textTwo", {
+        //     scrollTrigger: {
+        //         trigger: ".textTwo",
+        //         start: 'top 80%',
+        //         end: 'top 20%',
+        //         scrub: true,  
+        //         markers: false
+        //     },
+        //     opacity: 0.2,
+        //     stagger: 0.1
+        // }); -->
